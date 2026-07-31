@@ -40,7 +40,12 @@ class OverlayService : Service() {
     override fun onCreate() {
         super.onCreate()
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        supabase = SupabaseClient(this)
+        supabase = SupabaseClient { text ->
+            runOnUi {
+                whaleView.react(text)
+                showBubble(text)
+            }
+        }
         startForeground(1, buildNotification())
         setupOverlay()
         listenToBackend()
@@ -155,14 +160,7 @@ class OverlayService : Service() {
         Thread {
             while (true) {
                 try {
-                    val msg = supabase.fetchLatestMessage()
-                    if (msg != null) {
-                        val text = msg.get("message")?.toString() ?: continue
-                        runOnUi {
-                            whaleView.react(text)
-                            showBubble(text)
-                        }
-                    }
+                    supabase.fetchLatestMessage()
                 } catch (_: Exception) {}
                 Thread.sleep(3000)
             }
