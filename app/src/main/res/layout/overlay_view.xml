@@ -11,7 +11,7 @@
         android:background="@drawable/bubble_bg"
         android:padding="10dp"
         android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="-24dp"
+        android:layout_marginBottom="6dp"
         android:visibility="gone">
 
         <TextView
@@ -21,7 +21,8 @@
             android:text=""
             android:textColor="#333333"
             android:textSize="14sp"
-            android:maxWidth="220dp" />
+            android:maxWidth="240dp"
+            android:maxLines="6" />
 
     </LinearLayout>
 
