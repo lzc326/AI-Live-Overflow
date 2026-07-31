@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
     <LinearLayout
         android:id="@+id/bubble_container"
@@ -10,8 +12,6 @@
         android:orientation="vertical"
         android:background="@drawable/bubble_bg"
         android:padding="10dp"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginBottom="6dp"
         android:visibility="gone">
 
         <TextView
@@ -30,6 +30,6 @@
         android:id="@+id/whale_view"
         android:layout_width="100dp"
         android:layout_height="90dp"
-        android:layout_gravity="bottom|center_horizontal" />
+        android:layout_marginTop="2dp" />
 
-</FrameLayout>
+</LinearLayout>
